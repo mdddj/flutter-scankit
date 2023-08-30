@@ -36,7 +36,7 @@ class FlutterScankit {
   }
 
   static List<int> _getScanTypesIndex(List<ScanTypes> scanTypes){
-    if(scanTypes !=null && scanTypes.isNotEmpty){
+    if(scanTypes.isNotEmpty){
       assert(!(scanTypes.length > 1 && scanTypes.any((e) => e == ScanTypes.ALL)),
       "The parameter `scanTypes` is wrong, it is not allowed to "
           "pass `ScanTypes.ALL` together with other enumerated types");

@@ -74,6 +74,7 @@ public class ScanKitView implements PlatformView, LifecycleEventObserver,
         binding.addActivityResultListener((int requestCode, int resultCode, Intent data)->{
             if (requestCode == REQUEST_CODE_PHOTO  && resultCode == Activity.RESULT_OK){
                 if (mEvents == null) return true;
+                if(data == null) return true;
                 try {
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(mActivity.getContentResolver(), data.getData());
 

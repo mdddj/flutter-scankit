@@ -54,6 +54,12 @@
             result(nil);
         }else if([@"getLightStatus" isEqualToString:call.method]){
             result([NSNumber numberWithBool:[weakSelf getLightStatus]]);
+        }else if([@"pauseContinuouslyScan" isEqualToString:call.method]){
+            [self->customScanVC pauseContinuouslyScan];
+            result(nil);
+        }else if([@"resumeContinuouslyScan" isEqualToString:call.method]){
+            [self->customScanVC resumeContinuouslyScan];
+            result(nil);
         }
     }];
     
@@ -74,6 +80,7 @@
     customScanVC.customizedScanDelegate = self;
     customScanVC.backButtonHidden = true;
     customScanVC.continuouslyScan = continuouslyScan;
+   
     
     NSArray *box = args[@"boundingBox"];
     if(box){

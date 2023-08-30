@@ -33,6 +33,7 @@
         
         _eventChannel = [FlutterEventChannel eventChannelWithName:@"xyz.bczl.flutter_scankit/result" binaryMessenger:[registrar messenger]];
         [_eventChannel setStreamHandler:self];
+
     }
     return self;
 }
@@ -48,9 +49,11 @@
     HmsDefaultScanViewController *hmsDefault = [[HmsDefaultScanViewController alloc] initDefaultScanWithFormatType:options];
     hmsDefault.defaultScanDelegate = self;
       
+      
     [topViewCtrl.view addSubview:hmsDefault.view];
     [topViewCtrl addChildViewController:hmsDefault];
     [hmsDefault didMoveToParentViewController:topViewCtrl];
+      
       
     result([NSNumber numberWithInt:0]);
   } else {
